@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #111827;
+}
+.card {
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+  /* Bắt đầu với lá bài úp */
+  transform: rotateY(180deg);
+}
+.card-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.card-back {
+  transform: rotateY(180deg);
+}
+.is-flipped {
+  /* Lật lại để hiện mặt trước */
+  transform: rotateY(0deg);
+}
+
+/* Hiệu ứng fade-in cho phần luận giải */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
